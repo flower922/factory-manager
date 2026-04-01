@@ -3,13 +3,16 @@ import cloudbase from '@cloudbase/js-sdk'
 
 const envId = import.meta.env.VITE_CB_ENV_ID
 
-if (!envId || envId === '你的环境ID在这里填') {
-  console.warn('[CloudBase] 警告：未配置环境ID，请在 .env 文件中填写 VITE_CB_ENV_ID')
+// 检查是否配置了真实的环境ID
+const isConfigured = envId && envId !== 'your-env-id-here'
+
+if (!isConfigured) {
+  console.warn('[CloudBase] 警告：未配置环境ID，数据库功能不可用。请在 .env 文件中填写真实的 VITE_CB_ENV_ID')
 }
 
-// 初始化应用实例（环境ID为空时用占位符，避免阻断页面渲染）
+// 初始化应用实例
 const app = cloudbase.init({
-  env: envId || 'placeholder',
+  env: isConfigured ? envId : 'placeholder-env',
 })
 
 // 认证实例
