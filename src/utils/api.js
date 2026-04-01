@@ -120,3 +120,24 @@ export async function count(collection, where = {}) {
     throw e
   }
 }
+
+/**
+ * 查询指定一级分类的到期预警提前天数
+ * @param {string} categoryL1 一级分类名称（如"原料"）
+ * @returns {number} 提前天数，找不到返回 30
+ */
+export async function getExpiryAdvanceDays(categoryL1) {
+  try {
+    const res = await db.collection('categories')
+      .where({ name: categoryL1, level: 1 })
+      .limit(1)
+      .get()
+    if (res.data && res.data.length > 0) {
+      return res.data[0].expiry_advance_days ?? 30
+    }
+    return 30
+  } catch (e) {
+    console.error('[api.getExpiryAdvanceDays]', e)
+    return 30
+  }
+}
