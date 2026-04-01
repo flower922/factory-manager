@@ -1,3 +1,17 @@
+<template>
+  <van-search
+    v-model="keyword"
+    :placeholder="placeholder"
+    show-action
+    @search="handleSearch"
+    @keyup.enter="handleSearch"
+  >
+    <template #action>
+      <div @click="handleSearch">搜索</div>
+    </template>
+  </van-search>
+</template>
+
 <script setup>
 import { ref } from 'vue'
 
@@ -12,12 +26,3 @@ function handleSearch() {
   emit('search', keyword.value.trim())
 }
 </script>
-
-<template>
-  <van-search
-    v-model="keyword"
-    :placeholder="placeholder"
-    @search="handleSearch"
-    @click-right-icon="handleSearch"
-  />
-</template>
