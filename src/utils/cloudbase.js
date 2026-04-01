@@ -22,4 +22,4 @@ try {
   app  = null
 }
 
-export { app, db, auth }
+export { app, db, auth, isConfigured }
