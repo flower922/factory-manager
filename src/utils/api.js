@@ -1,8 +1,8 @@
 // 数据库 CRUD 操作封装，全项目统一使用这些方法操作数据库
 import { db } from './cloudbase.js'
 
-// db 为 null 时（未配置环境ID），所有操作静默返回空数据
-function noDb() { return db === null }
+// db 为 null 或环境ID未配置时，所有操作静默返回空数据
+function noDb() { return !db }
 
 export async function add(collection, data) {
   if (noDb()) return { id: 'mock-' + Date.now() }
@@ -16,7 +16,7 @@ export async function getById(collection, id) {
   try {
     const res = await db.collection(collection).doc(id).get()
     return res.data[0] || null
-  } catch (e) { console.error(`[api.getById] ${collection}`, e); throw e }
+  } catch (e) { console.error(`[api.getById] ${collection}`, e); return null }
 }
 
 export async function list(
@@ -30,7 +30,7 @@ export async function list(
     if (Object.keys(where).length > 0) query = query.where(where)
     const res = await query.orderBy(orderBy, direction).skip(skip).limit(pageSize).get()
     return res.data || []
-  } catch (e) { console.error(`[api.list] ${collection}`, e); throw e }
+  } catch (e) { console.error(`[api.list] ${collection}`, e); return [] }
 }
 
 export async function update(collection, id, data) {
