@@ -7,9 +7,9 @@ if (!envId || envId === '你的环境ID在这里填') {
   console.warn('[CloudBase] 警告：未配置环境ID，请在 .env 文件中填写 VITE_CB_ENV_ID')
 }
 
-// 初始化应用实例
+// 初始化应用实例（环境ID为空时用占位符，避免阻断页面渲染）
 const app = cloudbase.init({
-  env: envId,
+  env: envId || 'placeholder',
 })
 
 // 认证实例
