@@ -216,6 +216,14 @@ function formatExpiry(item) {
             <div class="quick-icon">🗺</div>
             <div class="quick-label">地图</div>
           </div>
+          <div class="quick-btn" @click="router.push('/items')">
+            <div class="quick-icon">📋</div>
+            <div class="quick-label">物品列表</div>
+          </div>
+          <div class="quick-btn" @click="router.push('/items/import')">
+            <div class="quick-icon">📂</div>
+            <div class="quick-label">Excel导入</div>
+          </div>
         </div>
       </div>
     </div>
@@ -374,7 +382,7 @@ function formatExpiry(item) {
 /* 快捷操作网格 */
 .quick-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 }
 .quick-btn {
