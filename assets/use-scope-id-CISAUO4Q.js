@@ -1,0 +1,1 @@
+import{E as e}from"./index-Dx39zaeJ.js";var t=()=>{let{scopeId:t}=e()?.vnode||{};return t?{[t]:``}:null};export{t};

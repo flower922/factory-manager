@@ -1,0 +1,1 @@
+import{D as e,_ as t,z as n}from"./index-Dx39zaeJ.js";var r=Symbol(),i=Symbol(),a=()=>e(i,null),o=e=>{let o=a();n(r,e),n(i,t(()=>(o==null||o.value)&&e.value))};export{o as n,a as t};
