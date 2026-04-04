@@ -7,7 +7,7 @@ export async function add(collection, data) {
   if (noDb()) return { id: 'mock-' + Date.now() }
   try {
     return await db.collection(collection).add({ ...data, created_at: new Date() })
-  } catch (e) { console.error(`[api.add] ${collection}`, e); throw e }
+  } catch (e) { console.error(`[api.add] ${collection}`, e); return { id: null } }
 }
 
 export async function getById(collection, id) {
@@ -15,7 +15,7 @@ export async function getById(collection, id) {
   try {
     const res = await db.collection(collection).doc(id).get()
     return res.data[0] || null
-  } catch (e) { console.error(`[api.getById] ${collection}`, e); throw e }
+  } catch (e) { console.error(`[api.getById] ${collection}`, e); return null }
 }
 
 export async function list(
@@ -29,21 +29,21 @@ export async function list(
     if (Object.keys(where).length > 0) query = query.where(where)
     const res = await query.orderBy(orderBy, direction).skip(skip).limit(pageSize).get()
     return res.data || []
-  } catch (e) { console.error(`[api.list] ${collection}`, e); throw e }
+  } catch (e) { console.error(`[api.list] ${collection}`, e); return [] }
 }
 
 export async function update(collection, id, data) {
   if (noDb()) return {}
   try {
     return await db.collection(collection).doc(id).update({ ...data, updated_at: new Date() })
-  } catch (e) { console.error(`[api.update] ${collection}`, e); throw e }
+  } catch (e) { console.error(`[api.update] ${collection}`, e); return {} }
 }
 
 export async function remove(collection, id) {
   if (noDb()) return {}
   try {
     return await db.collection(collection).doc(id).remove()
-  } catch (e) { console.error(`[api.remove] ${collection}`, e); throw e }
+  } catch (e) { console.error(`[api.remove] ${collection}`, e); return {} }
 }
 
 export async function count(collection, where = {}) {

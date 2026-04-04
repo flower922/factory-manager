@@ -32,6 +32,26 @@ const routes = [
   { path: '/stock/borrow', component: () => import('@/views/stock/BorrowPage.vue'), meta: { requiresAuth: true } },
   { path: '/stock/transfer', component: () => import('@/views/stock/TransferPage.vue'), meta: { requiresAuth: true } },
   { path: '/stock/apply', component: () => import('@/views/stock/ApplyPage.vue'), meta: { requiresAuth: true } },
+  // 供应商管理
+  { path: '/supplier/list', component: () => import('@/views/supplier/SupplierList.vue'), meta: { requiresAuth: true } },
+  // 采购申请
+  { path: '/purchase/list', component: () => import('@/views/purchase/PurchaseList.vue'), meta: { requiresAuth: true } },
+  { path: '/purchase/apply', component: () => import('@/views/purchase/PurchaseApply.vue'), meta: { requiresAuth: true } },
+  // 盘点历史
+  { path: '/stock/check/list', component: () => import('@/views/stock/CheckList.vue'), meta: { requiresAuth: true } },
+  // 维修记录
+  { path: '/repair/list', component: () => import('@/views/repair/RepairList.vue'), meta: { requiresAuth: true } },
+  { path: '/repair/add', component: () => import('@/views/repair/RepairForm.vue'), meta: { requiresAuth: true } },
+  // 报废申请
+  { path: '/scrap/apply', component: () => import('@/views/scrap/ScrapApply.vue'), meta: { requiresAuth: true } },
+  // 数据统计
+  { path: '/statistics', component: () => import('@/views/statistics/StatisticsPage.vue'), meta: { requiresAuth: true } },
+  // 操作日志
+  { path: '/logs', component: () => import('@/views/logs/OperationLogs.vue'), meta: { requiresAuth: true } },
+  // 固定资产
+  { path: '/assets/fixed', component: () => import('@/views/assets/FixedAssets.vue'), meta: { requiresAuth: true } },
+  // 待办工作台
+  { path: '/workbench', component: () => import('@/views/home/WorkbenchPage.vue'), meta: { requiresAuth: true } },
 ]
 
 const router = createRouter({

@@ -1,8 +1,8 @@
 <template>
-  <van-tabbar v-model="active" fixed placeholder>
+  <!-- 使用 to 属性时 Vant 会自动根据路由高亮，不需要 v-model -->
+  <van-tabbar fixed placeholder route>
     <van-tabbar-item icon="home-o"     to="/home">首页</van-tabbar-item>
     <van-tabbar-item icon="location-o" to="/map">地图</van-tabbar-item>
-    <!-- 扫码Tab：突出圆形蓝色 -->
     <van-tabbar-item to="/scan">
       <template #icon>
         <div class="scan-icon">
@@ -17,24 +17,8 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-
 defineProps({
   unreadCount: { type: Number, default: 0 }
-})
-
-const route = useRoute()
-
-// 根据当前路由激活对应Tab
-const active = computed(() => {
-  const path = route.path
-  if (path.startsWith('/home'))    return 0
-  if (path.startsWith('/map'))     return 1
-  if (path.startsWith('/scan'))    return 2
-  if (path.startsWith('/message')) return 3
-  if (path.startsWith('/profile')) return 4
-  return 0
 })
 </script>
 

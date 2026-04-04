@@ -75,8 +75,39 @@
         <div class="quick-btn" @click="router.push('/stock/apply')">
           <div class="quick-icon">📋</div><div class="quick-lbl">申领</div>
         </div>
+        <div class="quick-btn" @click="router.push('/purchase/apply')">
+          <div class="quick-icon">🛒</div><div class="quick-lbl">采购</div>
+        </div>
+        <div class="quick-btn" @click="router.push('/scrap/apply')">
+          <div class="quick-icon">🗑️</div><div class="quick-lbl">报废</div>
+        </div>
+        <div class="quick-btn" @click="router.push('/repair/add')">
+          <div class="quick-icon">🔨</div><div class="quick-lbl">维修</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 更多功能 -->
+    <div class="card">
+      <div class="card-title">更多功能</div>
+      <div class="quick-grid">
         <div class="quick-btn" @click="router.push('/stock/check/create')">
           <div class="quick-icon">📊</div><div class="quick-lbl">盘点</div>
+        </div>
+        <div class="quick-btn" @click="router.push('/statistics')">
+          <div class="quick-icon">📈</div><div class="quick-lbl">统计</div>
+        </div>
+        <div class="quick-btn" @click="router.push('/workbench')">
+          <div class="quick-icon">🗂️</div><div class="quick-lbl">待办</div>
+        </div>
+        <div class="quick-btn" @click="router.push('/supplier/list')">
+          <div class="quick-icon">🏭</div><div class="quick-lbl">供应商</div>
+        </div>
+        <div class="quick-btn" @click="router.push('/assets/fixed')">
+          <div class="quick-icon">🏗️</div><div class="quick-lbl">固定资产</div>
+        </div>
+        <div class="quick-btn" @click="router.push('/logs')">
+          <div class="quick-icon">📝</div><div class="quick-lbl">操作日志</div>
         </div>
         <div class="quick-btn" @click="router.push('/map')">
           <div class="quick-icon">🗺</div><div class="quick-lbl">地图</div>
