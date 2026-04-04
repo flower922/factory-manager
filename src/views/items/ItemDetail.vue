@@ -72,6 +72,13 @@
       </div>
     </template>
 
+    <!-- 底部操作按钮 -->
+    <div v-if="item" class="bottom-btns">
+      <van-button plain type="primary" round @click="router.push('/stock/borrow?product_id=' + id)">借用</van-button>
+      <van-button type="primary" round @click="router.push('/stock/in?product_id=' + id)">入库</van-button>
+      <van-button type="warning" round @click="router.push('/stock/out?product_id=' + id)">出库</van-button>
+    </div>
+
     <EmptyState v-else-if="!loading" text="物品不存在" />
   </div>
 </template>
@@ -130,7 +137,12 @@ function formatDate(date) {
 </script>
 
 <style scoped>
-.page { min-height: 100vh; background: #f5f6fa; padding-bottom: 30px; }
+.page { min-height: 100vh; background: #f5f6fa; padding-bottom: 90px; }
+.bottom-btns {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  display: flex; gap: 10px; padding: 12px 16px;
+  background: #fff; box-shadow: 0 -1px 6px rgba(0,0,0,0.08);
+}
 .loading { display: flex; justify-content: center; padding: 60px; }
 .item-header {
   display: flex; gap: 14px; padding: 16px;

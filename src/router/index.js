@@ -29,6 +29,9 @@ const routes = [
   { path: '/poison/ledger', component: () => import('@/views/poison/PoisonLedger.vue'), meta: { requiresAuth: true } },
   { path: '/poison/verify/:id', component: () => import('@/views/poison/PoisonVerify.vue'), meta: { requiresAuth: true } },
   { path: '/poison/confirm', component: () => import('@/views/poison/PoisonConfirm.vue'), meta: { requiresAuth: true } },
+  { path: '/stock/borrow', component: () => import('@/views/stock/BorrowPage.vue'), meta: { requiresAuth: true } },
+  { path: '/stock/transfer', component: () => import('@/views/stock/TransferPage.vue'), meta: { requiresAuth: true } },
+  { path: '/stock/apply', component: () => import('@/views/stock/ApplyPage.vue'), meta: { requiresAuth: true } },
 ]
 
 const router = createRouter({
